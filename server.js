@@ -2,6 +2,8 @@
 
 const express = require('express');
 
+const handleHomePage = require('./handlers/home');
+
 const app = express();
 
 // PROBLEM!
@@ -11,9 +13,7 @@ const app = express();
 // Get the port number from the environment (PORT is always assigned by the cloud)
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.status(200).send("I am alive");  
-});
+app.get('/', handleHomePage);
 
 app.listen(PORT, () => { 
   console.log(`Server is running on port ${PORT}`);
